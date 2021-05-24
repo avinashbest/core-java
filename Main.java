@@ -1,16 +1,18 @@
 package com.avinashbest;
 
+import java.text.NumberFormat;
+
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(Math.round(1.2F));
-        System.out.println(Math.round(1.2));
-        System.out.println(Math.ceil(1.2));
-        System.out.println(Math.floor(1.2));
-        System.out.println(Math.max(200, 300));
-        System.out.println(Math.min(200, 300));
-        System.out.println(Math.random());//by default return a doubleType random number b/w 0 to 1
-        System.out.println(Math.round(Math.random() * 100));
-        System.out.println((int) (Math.random() * 100));
+        NumberFormat currency = NumberFormat.getCurrencyInstance();
+        String result = currency.format(123456.789);
+        System.out.println(result);
+
+        NumberFormat percent = NumberFormat.getPercentInstance();
+        String percentage = percent.format(0.1);
+        System.out.println(percentage);
+
+        System.out.println(NumberFormat.getCurrencyInstance().format(134343134313L));
     }
 }
