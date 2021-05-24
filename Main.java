@@ -1,18 +1,17 @@
 package com.avinashbest;
 
-import java.text.NumberFormat;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        NumberFormat currency = NumberFormat.getCurrencyInstance();
-        String result = currency.format(123456.789);
-        System.out.println(result);
-
-        NumberFormat percent = NumberFormat.getPercentInstance();
-        String percentage = percent.format(0.1);
-        System.out.println(percentage);
-
-        System.out.println(NumberFormat.getCurrencyInstance().format(134343134313L));
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Age: ");
+        byte age = scanner.nextByte();
+        System.out.print("Name: ");
+//        String name = scanner.next(); //returns the next token
+        String name = scanner.nextLine().trim(); //returns next line
+        System.out.println("You are " + age);
+        System.out.println("Your name " + name);
     }
 }
