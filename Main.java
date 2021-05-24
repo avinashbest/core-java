@@ -1,16 +1,13 @@
 package com.avinashbest;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
-        String message1 = "Hello \"Avinash\"";
-        String message2 = "C:\\Windows\\...";
-        String message3 = "C:\nWindows\n...";
-        String message4 = "C:\tWindows\t...";
-
-        System.out.println(message1);
-        System.out.println(message2);
-        System.out.println(message3);
-        System.out.println(message4);
+        int[] number = {2, 4, 6, 8, 10};
+        System.out.println(number.length);
+        Arrays.sort(number);
+        System.out.println(Arrays.toString(number));
     }
 }
