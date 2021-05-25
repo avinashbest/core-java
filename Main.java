@@ -3,25 +3,21 @@ package com.avinashbest;
 public class Main {
 
     public static void main(String[] args) {
-        int temperature = 32;
-        if (temperature > 32) {
-            System.out.println("It's a hot day");
-            System.out.println("Drink water");
-        } else if (temperature > 20) {
-            System.out.println("Beautiful day");
-        } else {
-            System.out.println("Cold day");
-        }
-        /*Simplifying if-statement*/
         int income = 120_000;
-        boolean hasHighIncome;
+        String className;
         if (income > 100_000) {
-            hasHighIncome = true;
+            className = "First";
         } else {
-            hasHighIncome = false;
+            className = "Economy";
         }
-        /*Above Expression can be simplified by professional be like*/
-        int income = 120_000;
-        boolean hasHighIncome = income > 100_000;
+        /*Simplification can be done as*/
+        income = 120_000;
+        className = "Economy";
+        if (income > 100_000) {
+            className = "First";
+        }
+        /*More Simplification can be done using Ternary Operator*/
+        income = 120_000;
+        className = (income > 100_000) ? "First" : "Economy";
     }
 }
