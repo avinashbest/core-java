@@ -705,7 +705,7 @@
 ## Running a Java Archive (.jar) in local:
 
 ```bash
-    java -jar file-name.jar
+    $ java -jar file-name.jar
 ```
 
 ## Thank You!
