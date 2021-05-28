@@ -1,26 +1,25 @@
 package com.avinashbest;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
-        String role = "admin";
-        switch (role) {
-            case "admin":
-                System.out.println("You're an admin");
-                break;
-            case "moderator":
-                System.out.println("You're a moderator");
-                break;
-            default:
-                System.out.println("You're a guest");
-        }
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Number: ");
+        int number = scanner.nextInt();
 
-        if (role == "admin") {
-            System.out.println("You're an admin");
-        } else if (role == "moderator") {
-            System.out.println("You're a moderator");
+        boolean moduloFive = (number % 5) == 0;
+        boolean moduloThree = (number % 3) == 0;
+
+        if (moduloFive && moduloThree) {
+            System.out.println("FizzBuzz");
+        } else if (moduloFive) {
+            System.out.println("Fizz");
+        } else if (moduloThree) {
+            System.out.println("Buzz");
         } else {
-            System.out.println("You're a guest");
+            System.out.println(number);
         }
     }
 }
