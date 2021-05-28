@@ -52,8 +52,9 @@
 
 ## Types:
 
-- Primitive: for storing simple values, like numbers, characters, booleans
-  ![preview](preview/preview-4.png)
+- Primitive: for storing simple values, like numbers, characters, booleans.
+
+![preview](preview/preview-4.png)
 
 - How primitive types are stored in memory.
 
@@ -288,7 +289,7 @@
     }
 ```
 
-## Mortgage Calculator:
+## Mortgage Calculator - v1.0:
 
 ```bash
     public class Main {
@@ -405,3 +406,308 @@
         }
     }
 ```
+
+## Switch Statements:
+
+```bash
+    public class Main {
+        public static void main(String[] args) {
+            String role = "admin";
+            switch (role) {
+                case "admin":
+                    System.out.println("You're an admin");
+                    break;
+                case "moderator":
+                    System.out.println("You're a moderator");
+                    break;
+                default:
+                    System.out.println("You're a guest");
+            }
+
+            if (role == "admin") {
+                System.out.println("You're an admin");
+            } else if (role == "moderator") {
+                System.out.println("You're a moderator");
+            } else {
+                System.out.println("You're a guest");
+            }
+        }
+    }
+```
+
+## Exercise: FizzBuzz:
+
+```bash
+    public class Main {
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Number: ");
+            int number = scanner.nextInt();
+
+            boolean moduloFive = (number % 5) == 0;
+            boolean moduloThree = (number % 3) == 0;
+
+            if (moduloFive && moduloThree) {
+                System.out.println("FizzBuzz");
+            } else if (moduloFive) {
+                System.out.println("Fizz");
+            } else if (moduloThree) {
+                System.out.println("Buzz");
+            } else {
+                System.out.println(number);
+            }
+        }
+    }
+```
+
+## Loops in Java:
+
+```bash
+    public class Main {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            /*FOR LOOPS*/
+            for (int i = 0; i < 5; i++) {
+                System.out.println("Hello, Java!");
+            }
+            /*WHILE LOOPS: USED WHEN DON'T KNOW HOW MANY TIMES WE NEED TO EXECUTE CODE*/
+            int i = 0;
+            while (i < 5) {
+                System.out.println("Hello, Java!");
+                i++;
+            }
+
+            String input = "";
+            while (!input.equals("quit")) {
+                System.out.print("Input: ");
+                input = scan.next().toLowerCase(Locale.ROOT);
+                System.out.println(input);
+            }
+            /*DO-WHILE LOOPS: SIMILAR TO WHILE-LOOP BUT IT EXECUTES ATLEAST 1 TIME*/
+            do {
+                System.out.print("Input: ");
+                input = scan.next().toLowerCase(Locale.ROOT);
+                System.out.println(input);
+            } while (!input.equals("quit"));
+        }
+    }
+```
+
+## Break & Continue Keywords:
+
+```bash
+    public class Main {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String input = "";
+
+            while (true) {
+                System.out.print("Input: ");
+                input = scan.next().toLowerCase(Locale.ROOT);
+                if (input.equals("pass")) {
+                    continue;/*moves control to the beginning of  the loop*/
+                }
+                if (input.equals("quit")) {
+                    break;/*break out of the loop*/
+                }
+                System.out.println(input);
+            }
+        }
+    }
+```
+
+## Mortgage Calculator - v2.0:
+
+```bash
+    public class Main {
+        public static void main(String[] args) {
+            final byte MONTHS_IN_YEAR = 12;
+            final byte PERCENT = 100;
+
+            int principal;
+            float annualInterest;
+            float monthlyInterest;
+            byte years;
+            int numberOfPayments;
+
+            Scanner scanner = new Scanner(System.in);
+
+            while (true) {
+                System.out.print("Principal ($1K - $1M): ");
+                principal = scanner.nextInt();
+                if (principal >= 1000 && principal <= 1_000_000) {
+                    break;
+                }
+                System.out.println("Enter a value between $1000 and $1,000,000");
+            }
+
+            while (true) {
+                System.out.print("Annual Interest Rate (1% - 30%): ");
+                annualInterest = scanner.nextFloat();
+                if (annualInterest >= 1 && annualInterest <= 30) {
+                    monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
+                    break;
+                }
+                System.out.println("Enter a value between 1 and 30");
+            }
+
+            while (true) {
+                System.out.print("Period (1 Years- 30 Years): ");
+                years = scanner.nextByte();
+                if (years >= 1 && years <= 30) {
+                    numberOfPayments = years * MONTHS_IN_YEAR;
+                    break;
+                }
+                System.out.println("Enter a value between 1 and 30");
+
+            }
+            /*calculating mortgage*/
+            double mortgage = principal * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments) / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1));
+
+            System.out.println("Mortgage: " + NumberFormat.getCurrencyInstance().format(mortgage));
+        }
+    }
+```
+
+## Creating Methods:
+
+```bash
+    public class Main {
+        public static void main(String[] args) {
+            String message = greetUser("Avinash", "Kumar");
+            System.out.println(message);
+        }
+        
+        public static String greetUser(String firstName, String lastName){
+          return "Hello " + firstName + " " + lastName;
+        }
+    }
+```
+
+## Mortgage Calculator - v3.0:
+
+```bash
+    public class Main {
+        public static void main(String[] args) {
+            int principal = (int) readNumber("Principal ($1K - $1M): ", 1000, 1_000_000);
+            float annualInterest = (float) readNumber("Annual Interest Rate (1% - 30%): ", 1, 30);
+            byte years = (byte) readNumber("Period (1 Years- 30 Years): ", 1, 30);
+
+            double mortgage = calculateMortgage(principal, annualInterest, years);
+            System.out.println("Mortgage: " + NumberFormat.getCurrencyInstance().format(mortgage));
+        }
+
+        public static double readNumber(String prompt, double min, double max) {
+            Scanner scanner = new Scanner(System.in);
+            double value;
+            while (true) {
+                System.out.print(prompt);
+                value = scanner.nextDouble();
+                if (value >= min && value <= max) {
+                    break;
+                }
+                System.out.println("Enter a value between " + min + " and " + max);
+            }
+            return value;
+        }
+
+        public static double calculateMortgage(int principal, float annualInterest, byte years) {
+            final byte MONTHS_IN_YEAR = 12;
+            final byte PERCENT = 100;
+
+            float monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
+            short numberOfPayments = (short) (years * MONTHS_IN_YEAR);
+
+            return principal * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments) / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1));
+        }
+    }
+```
+
+## Mortgage Calculator - Clean Code:
+
+```bash
+    public class Main {
+        final static byte MONTHS_IN_YEAR = 12;
+        final static byte PERCENT = 100;
+
+        public static void main(String[] args) {
+            int principal = (int) readNumber("Principal ($1K - $1M): ", 1000, 1_000_000);
+            float annualInterest = (float) readNumber("Annual Interest Rate (1% - 30%): ", 1, 30);
+            byte years = (byte) readNumber("Period (1 Years- 30 Years): ", 1, 30);
+
+            printMortgage(principal, annualInterest, years);
+
+            printPaymentSchedule(principal, annualInterest, years);
+        }
+
+        private static void printPaymentSchedule(int principal, float annualInterest, byte years) {
+            System.out.println();
+            System.out.println("PAYMENTS SCHEDULE:");
+            System.out.println("------------------");
+            for (short month = 1; month <= years * MONTHS_IN_YEAR; month++) {
+                double balance = calculateBalance(principal, annualInterest, years, month);
+                System.out.println(NumberFormat.getCurrencyInstance().format(balance));
+            }
+        }
+
+        private static void printMortgage(int principal, float annualInterest, byte years) {
+            System.out.println();
+            System.out.println("MORTGAGE");
+            System.out.println("--------");
+            double mortgage = calculateMortgage(principal, annualInterest, years);
+            System.out.println("Monthly Payments: " + NumberFormat.getCurrencyInstance().format(mortgage));
+        }
+
+        public static double readNumber(String prompt, double min, double max) {
+            Scanner scanner = new Scanner(System.in);
+            double value;
+            while (true) {
+                System.out.print(prompt);
+                value = scanner.nextDouble();
+                if (value >= min && value <= max) {
+                    break;
+                }
+                System.out.println("Enter a value between " + min + " and " + max);
+            }
+            return value;
+        }
+
+        public static double calculateBalance(int principal, float annualInterest, byte years, short numberOfPaymentsMade) {
+            float monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
+            short numberOfPayments = (short) (years * MONTHS_IN_YEAR);
+
+            double balance = principal * (Math.pow(1 + monthlyInterest, numberOfPayments) - Math.pow(1 + monthlyInterest, numberOfPaymentsMade)) / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1);
+
+            return balance;
+        }
+
+        public static double calculateMortgage(int principal, float annualInterest, byte years) {
+            float monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
+            short numberOfPayments = (short) (years * MONTHS_IN_YEAR);
+
+            return principal * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments) / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1));
+        }
+    }
+```
+
+## Refactoring
+
+- Changing the structure of the code without changing its behaviour.
+- Keep your methods short
+- Extract repetitive patterns
+- Extract highly related statements
+
+## Types of Errors
+
+- Compile - Time Errors
+- Run - Time Errors
+
+## Running a Java Archive (.jar) in local:
+
+```bash
+    java -jar file-name.jar
+```
+
+## Thank You!
+
+![preview](preview/preview-8.png)
