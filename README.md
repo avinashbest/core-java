@@ -33,15 +33,15 @@
 ![preview](preview/preview-2.png)
 
 ```bash
-    avinashbest $ javac Main.java
+    avinashbest/ $ javac Main.java
 ```
 
 ```bash
-    avinashbest $ cd ..
+    avinashbest/ $ cd ..
 ```
 
 ```bash
-    $ java com.avinashbest.Main
+    src/ $ java com.avinashbest.Main
 ```
 
 ## Interesting Facts about Java:
@@ -285,7 +285,7 @@
             System.out.println("You are " + age);
             System.out.println("Your name " + name);
         }
-    }   
+    }
 ```
 
 ## Mortgage Calculator:
@@ -313,6 +313,95 @@
             double mortgage = principal * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments) / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1));
 
             System.out.println("Mortgage: " + NumberFormat.getCurrencyInstance().format(mortgage));
+        }
+    }
+```
+
+## Comparison Operators:
+
+```bash
+    public class Main {
+        public static void main(String[] args) {
+            int x = 1;
+            int y = 1;
+            System.out.println(x == y);
+            System.out.println(x != y);
+            System.out.println(x > y);
+            System.out.println(x >= y);
+            System.out.println(x < y);
+            System.out.println(x <= y);
+        }
+    }
+```
+
+## Logical Operators:
+
+```bash
+    public class Main {
+        public static void main(String[] args) {
+            int temperature = 22;
+            boolean isWarm = temperature > 20 && temperature < 30;
+            System.out.println(isWarm);
+
+            boolean hasHighIncome = true;
+            boolean hasGoodCredit = true;
+            boolean hasCriminalRecord = false;
+            boolean isEligible = (hasGoodCredit || hasHighIncome) && !hasCriminalRecord;
+            System.out.println(isEligible);
+        }
+    }
+```
+
+## if-statement:
+
+```bash
+    public class Main {
+        public static void main(String[] args) {
+            int temperature = 32;
+            if (temperature > 32) {
+                System.out.println("It's a hot day");
+                System.out.println("Drink water");
+            } else if (temperature > 20) {
+                System.out.println("Beautiful day");
+            } else {
+                System.out.println("Cold day");
+            }
+            /*Simplifying if-statement*/
+            int income = 120_000;
+            boolean hasHighIncome;
+            if (income > 100_000) {
+                hasHighIncome = true;
+            } else {
+                hasHighIncome = false;
+            }
+            /*Above Expression can be simplified by professional be like*/
+            int income = 120_000;
+            boolean hasHighIncome = income > 100_000;
+        }
+    }
+```
+
+# Ternary Operators:
+
+```bash
+    public class Main {
+        public static void main(String[] args) {
+            int income = 120_000;
+            String className;
+            if (income > 100_000) {
+                className = "First";
+            } else {
+                className = "Economy";
+            }
+            /*Simplification can be done as*/
+            income = 120_000;
+            className = "Economy";
+            if (income > 100_000) {
+                className = "First";
+            }
+            /*More Simplification can be done using Ternary Operator*/
+            income = 120_000;
+            className = (income > 100_000) ? "First" : "Economy";
         }
     }
 ```
