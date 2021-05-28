@@ -7,28 +7,18 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        /*FOR LOOPS*/
-        for (int i = 0; i < 5; i++) {
-            System.out.println("Hello, Java!");
-        }
-        /*WHILE LOOPS: USED WHEN DON'T KNOW HOW MANY TIMES WE NEED TO EXECUTE CODE*/
-        int i = 0;
-        while (i < 5) {
-            System.out.println("Hello, Java!");
-            i++;
-        }
-
         String input = "";
-        while (!input.equals("quit")) {
+
+        while (true) {
             System.out.print("Input: ");
             input = scan.next().toLowerCase(Locale.ROOT);
+            if (input.equals("pass")) {
+                continue;/*moves control to the beginning of  the loop*/
+            }
+            if (input.equals("quit")) {
+                break;/*break out of the loop*/
+            }
             System.out.println(input);
         }
-        /*DO-WHILE LOOPS: SIMILAR TO WHILE-LOOP BUT IT EXECUTES ATLEAST 1 TIME*/
-        do {
-            System.out.print("Input: ");
-            input = scan.next().toLowerCase(Locale.ROOT);
-            System.out.println(input);
-        } while (!input.equals("quit"));
     }
 }
