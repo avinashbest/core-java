@@ -14,6 +14,11 @@ public class Employee {
         return baseSalary + (extraHours * hourlyRate);
     }
 
+    /*METHOD OVERLOADING*/
+    public int calculateWage() {
+        return calculateWage(0);
+    }
+
     /*SETTERS*/
     private void setBaseSalary(int baseSalary) {
         if (baseSalary <= 0) {
