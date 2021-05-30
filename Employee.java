@@ -24,11 +24,11 @@ public class Employee {
     }
 
     /*GETTERS*/
-    public int getBaseSalary() {
+    private int getBaseSalary() {
         return this.baseSalary;
     }
 
-    public int getHourlyRate() {
+    private int getHourlyRate() {
         return this.hourlyRate;
     }
 }
