@@ -4,6 +4,9 @@ public class Employee {
     private int baseSalary;
     private int hourlyRate;
 
+    /*Static fields belongs to class, they are independent of objects.*/
+    public static int numberOfEmployees;
+
     /*CONSTRUCTORS*/
     public Employee(int baseSalary) {
         this(baseSalary, 0);
@@ -12,6 +15,12 @@ public class Employee {
     public Employee(int baseSalary, int hourlyRate) {
         setBaseSalary(baseSalary);
         setHourlyRate(hourlyRate);
+        numberOfEmployees++;
+    }
+
+    /*Static Methods belongs to class, they are independent of objects.*/
+    public static void printNumberOfEmployee() {
+        System.out.println("Number of Employee = " + numberOfEmployees);
     }
 
     public int calculateWage(int extraHours) {
