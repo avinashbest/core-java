@@ -1,13 +1,7 @@
 package com.avinashbest;
 
 public class TextBox extends UIControl {
-    private String text = "";//field
-
-    /*Constructor*/
-//    public TextBox() {
-//        super(true);
-//    }
-
+    private String text = "";
 
     @Override
     public void render() {
