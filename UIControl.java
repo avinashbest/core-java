@@ -5,7 +5,6 @@ public class UIControl {
 
     /*Constructor*/
     public UIControl(boolean isEnabled) {
-        System.out.println("UIControl");
         this.isEnabled = isEnabled;
     }
 
