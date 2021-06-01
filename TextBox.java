@@ -1,14 +1,19 @@
 package com.avinashbest;
 
-public class TextBox extends UIControl{
+public class TextBox extends UIControl {
     private String text = "";//field
 
-    public void setText(String text) {
-        this.text = text;
+    public TextBox() {
+        super(true);
+        System.out.println("TextBox");
     }
 
     public void clear() {
         this.text = "";
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 
 }
