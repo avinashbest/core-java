@@ -311,7 +311,8 @@
             int numberOfPayments = years * MONTHS_IN_YEAR;
 
             /*calculating mortgage*/
-            double mortgage = principal * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments) / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1));
+            double mortgage = principal * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments) 
+            / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1));
 
             System.out.println("Mortgage: " + NumberFormat.getCurrencyInstance().format(mortgage));
         }
@@ -562,7 +563,8 @@
 
             }
             /*calculating mortgage*/
-            double mortgage = principal * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments) / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1));
+            double mortgage = principal * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments) 
+            / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1));
 
             System.out.println("Mortgage: " + NumberFormat.getCurrencyInstance().format(mortgage));
         }
@@ -618,7 +620,8 @@
             float monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
             short numberOfPayments = (short) (years * MONTHS_IN_YEAR);
 
-            return principal * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments) / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1));
+            return principal * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments) 
+            / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1));
         }
     }
 ```
@@ -676,7 +679,9 @@
             float monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
             short numberOfPayments = (short) (years * MONTHS_IN_YEAR);
 
-            double balance = principal * (Math.pow(1 + monthlyInterest, numberOfPayments) - Math.pow(1 + monthlyInterest, numberOfPaymentsMade)) / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1);
+            double balance = principal * (Math.pow(1 + monthlyInterest, numberOfPayments) 
+            - Math.pow(1 + monthlyInterest, numberOfPaymentsMade)) 
+            / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1);
 
             return balance;
         }
@@ -685,7 +690,8 @@
             float monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
             short numberOfPayments = (short) (years * MONTHS_IN_YEAR);
 
-            return principal * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments) / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1));
+            return principal * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments) 
+            / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1));
         }
     }
 ```
