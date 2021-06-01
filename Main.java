@@ -3,19 +3,15 @@ package com.avinashbest;
 public class Main {
 
     public static void main(String[] args) {
-        var control = new UIControl(true);
-        var textBox = new TextBox();
-        show(textBox);
-    }
-
-    /*Upcast an Object*/
-    private static void show(UIControl control) {
-        /*Downcast an Object*/
-        if (control instanceof TextBox) {
-            var textBox = (TextBox) control;
-            textBox.setText("Hello World");
-        }
-        System.out.println(control);
+        var point1 = new Point(1, 2);
+        var point2 = new Point(1, 2);
+        /*Compare 2 objects based on the references*/
+        System.out.println(point1 == point2);
+        /*Compare 2 objects based on the values by Overriding the method*/
+        System.out.println(point1.equals(point2));
+        /**/
+        System.out.println(point1.hashCode());
+        System.out.println(point2.hashCode());
     }
 
 }
