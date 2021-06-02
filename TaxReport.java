@@ -1,10 +1,11 @@
 package com.avinashbest;
 
 public class TaxReport {
-    private TaxCalculator2018 calculator;
+    private TaxCalculator calculator;
 
-    public TaxReport() {
-        calculator = new TaxCalculator2018(100_000);
+    /*Constructor Injection*/
+    public TaxReport(TaxCalculator calculator) {
+        this.calculator = calculator;
     }
 
     public void show() {
