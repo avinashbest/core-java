@@ -12,4 +12,9 @@ public class TaxReport {
         var tax = calculator.calculateTax();
         System.out.println(tax);
     }
+
+    /*Setter Injection*/
+    public void setCalculator(TaxCalculator calculator) {
+        this.calculator = calculator;
+    }
 }
