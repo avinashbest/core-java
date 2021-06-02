@@ -1,14 +1,20 @@
 package com.avinashbest.MyTube;
 
 public class VideoProcessor {
+    private VideoEncoder encoder;
+    private NotificationService emailService;
+    private VideoDatabase database;
+
+    /*Constructor Injection*/
+    public VideoProcessor(VideoEncoder encoder, NotificationService emailService, VideoDatabase database) {
+        this.encoder = encoder;
+        this.emailService = emailService;
+        this.database = database;
+    }
+
     public void process(Video video) {
-        var encoder = new VideoEncoder();
         encoder.encode(video);
-
-        var database = new VideoDatabase();
         database.store(video);
-
-        var emailService = new EmailService();
         emailService.sendEmail(video.getUser());
     }
 }
