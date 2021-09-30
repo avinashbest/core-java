@@ -1,4 +1,4 @@
-## Function:
+## Function :
 
 - A block of code that performs a task.
 
@@ -714,6 +714,6 @@
     $ java -jar file-name.jar
 ```
 
-## Thank You!
+## Thank You !
 
 ![preview](preview/preview-8.png)
